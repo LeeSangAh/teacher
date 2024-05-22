@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>어디가게</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="fankids">
+    <meta name="keywords" content="학원, 공부방, 과외, 어디갈까, 맛집, 모임, 육아, 나눔, 이웃, 친구">
+    <meta name="description" content="나의 위치를 기반으로 주변의 학원, 갈만한 곳을 추천해주는 서비스입니다. ">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fankids.co.kr">
+    <meta property="og:title" content="eodiga">
+    <meta property="og:description" content="어디 가고 싶은데">
+    <meta property="og:image" content="http://www.fankids.co.kr/static/images/main-logo-14-up.png">
+
+    <link rel="icon" href="{{url_for('static', filename='images/favicon.ico') }}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{url_for('static', filename='images/favicon.ico') }}"/>
+    {#    <link rel="manifest" href="/static/assets/images/favicons/manifest.json">#}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
+    <link href="/static/vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/static/vendors/prism/prism-okaidia.css" rel="stylesheet">
+    <link href="/static/vendors/simplebar/simplebar.min.css" rel="stylesheet">
+    <link href="/static/assets/css/theme-rtl.css" rel="stylesheet" id="style-rtl">
+    <link href="/static/assets/css/theme.css" rel="stylesheet" id="style-default">
+    <link href="/static/assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
+    <link href="/static/assets/css/user.min.css" rel="stylesheet" id="user-style-default">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css" />
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="/static/assets/js/config.js"></script>
+    <script src="/static/vendors/simplebar/simplebar.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/sigungu_h.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/hangjungdong_b.js') }}"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script>
+        function init(){
+            academy_list();
+        };
+
+        var isRTL = JSON.parse(localStorage.getItem('isRTL'));
+        if (isRTL) {
+            var linkDefault = document.getElementById('style-default');
+            var userLinkDefault = document.getElementById('user-style-default');
+            linkDefault.setAttribute('disabled', true);
+            userLinkDefault.setAttribute('disabled', true);
+            document.querySelector('html').setAttribute('dir', 'rtl');
+        } else {
+            var linkRTL = document.getElementById('style-rtl');
+            var userLinkRTL = document.getElementById('user-style-rtl');
+            linkRTL.setAttribute('disabled', true);
+            userLinkRTL.setAttribute('disabled', true);
+        }
+    </script>
+    <!-- script
+    ================================================== -->
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/member_info.js') }}"></script>
+
+</head>
+<body onload="init();">
+<main class="main" id="top">
+    <div id="container" class="container">
+        <script>
+            var isFluid = JSON.parse(localStorage.getItem('isFluid'));
+            if (isFluid) {
+                var container = document.querySelector('[data-layout]');
+                container.classList.remove('container');
+                container.classList.add('container-fluid');
+            }
+        </script>
+{#        <nav class="navbar navbar-light navbar-vertical navbar-expand-xl">{% include 'nav.html' %}</nav>#}
+        <div class="content">
+            <div class="d-flex align-items-center" style="margin-top: 20px; margin-left: 3px;"><img class="me-2" src="/static/images/main-logo-14-up.png" alt="" width="80" /><span style="font-size: 12px;">학원 관리</span>
+            </div>
+{#            <p style="margin-left: 10px;"><b>학원 정보 관리</b></p>#}
+{#            <div class="card mb-3" id="academy_list">#}
+{#                <div class="card-header">#}
+{#                    <div class="row">#}
+{#                        <div style="display: flex; justify-content: flex-start; margin-top: 10px;">#}
+{#                            <div style="margin-right: auto;">#}
+{#                                <p>대표 학원 설정</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div>#}
+{#                            <select class="form-select" id="AcademyItemSelectBox" onchange="academy_change();">#}
+{#                            </select>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+            <div class="card mb-3" id="academy_search">
+                <div class="card-header" style="margin-top: 30px; margin-bottom: 30px;">
+                    <div id="loc_add_services_view">
+                        <div>
+                            <p>학원 등록 및 인증</p>
+                        </div>
+                        <div id="sigungu_select" style="font-size: 15px;">
+                            <select id="sido" class="form-select" style="margin-top: 5px;"><option value="">선택</option></select>
+                            <select id="sigugun" class="form-select" style="margin-top: 5px;"><option value="">선택</option></select>
+                            <select id="dong" class="form-select" style="margin-top: 5px;"><option value="">선택</option></select>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 50px;" class="input-group mt-3">
+                        <input id="academy_search_nm" class="form-control" name="search" type="text" placeholder="학원 이름을 입력하세요." maxlength="20" style="font-size: 15px;" onkeyup="if(window.event.keyCode==13){academy_search();}"/>&nbsp;
+                        <span class="bi-search fs-3" onclick="academy_search();"></span>
+                    </div>
+                    <div id="academy_search_list" style="overflow-y: auto; margin-top: 30px;"></div>
+                    <div id="academy_search_result" style="margin-top: 30px; display: none;">
+                        <input type="hidden" id="academy_select_idx" value="">
+                        <input type="hidden" id="academy_bjdong" value="">
+                        <div id = "review_list" style="margin-bottom: 10px;">
+                            <div>
+                                <div>
+                                    <input id="academy_nm" class="form-control shadow-none" value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div><p style="margin-left: 10px;">학원장님으로 등록하시려면 학원 검색 후 사업자 등록 정보를 입력하세요.</p></div>
+                    <div id="business_num_div" style="margin-top: 10px; display: none;">
+                        <input type="hidden" id="academy_business_result" value="">
+                        <input name="business_num" class="form-control" id="business_num" type="text" placeholder="사업자등록번호 (예: 0123456789)" style="font-size: 12px;" maxlength="10">&nbsp;
+                        <input name="business_start_date" class="form-control" id="business_start_date" type="text" placeholder="개업일자 (예: 20240319)" style="font-size: 12px;" maxlength="8">&nbsp;
+                        <input name="business_boss_nm" class="form-control" id="business_boss_nm" type="text" placeholder="대표자 성명 (예: 홍길동)" style="font-size: 12px;" maxlength="20">&nbsp;
+                        <span class="bi-search fs-3" onclick="academy_business_search();"></span>
+                    </div>
+                    <div id="save_div" style="margin-top: 10px; text-align: center; display: none;">
+                        <button class="common-button" id="child_info_save" name="commit" onclick="academy_reg();">학원 등록</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="{{url_for('static', filename='js/index_home.js')}}"></script>
+<script src="{{url_for('static', filename='js/academy_info.js')}}"></script>
+<script src="{{url_for('static', filename='js/edu_info.js')}}"></script>
+<script src="{{url_for('static', filename='js/common.js')}}"></script>
+<script src="/static/vendors/popper/popper.min.js"></script>
+<script src="/static/vendors/bootstrap/bootstrap.min.js"></script>
+<script src="/static/vendors/anchorjs/anchor.min.js"></script>
+<script src="/static/vendors/is/is.min.js"></script>
+<script src="/static/vendors/swiper/swiper-bundle.min.js"> </script>
+<script src="/static/vendors/echarts/echarts.min.js"></script>
+<script src="/static/vendors/fontawesome/all.min.js"></script>
+<script src="/static/vendors/lodash/lodash.min.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+<script src="/static/vendors/list.js/list.min.js"></script>
+<script src="/static/assets/js/theme.js"></script>
+<script src="/static/js/dashboard.js"></script>
+<script src="{{ url_for('static', filename='js/plugins.js')}}"></script>
+<script src="{{ url_for('static', filename='js/script.js')}}"></script>
+</body>
+</html>

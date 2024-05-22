@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>어디가게</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="fankids">
+    <meta name="keywords" content="학원, 공부방, 과외, 어디갈까, 맛집, 모임, 육아, 나눔, 이웃, 친구">
+    <meta name="description" content="나의 위치를 기반으로 주변의 학원, 갈만한 곳을 추천해주는 서비스입니다. ">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fankids.co.kr">
+    <meta property="og:title" content="eodiga">
+    <meta property="og:description" content="어디 가고 싶은데">
+    <meta property="og:image" content="http://www.fankids.co.kr/static/images/main-logo-14-up.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    {#    <link rel="manifest" href="/static/assets/images/favicons/manifest.json">#}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
+    <link href="/static/vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/static/vendors/prism/prism-okaidia.css" rel="stylesheet">
+    <link href="/static/vendors/simplebar/simplebar.min.css" rel="stylesheet">
+    <link href="/static/assets/css/theme-rtl.css" rel="stylesheet" id="style-rtl">
+    <link href="/static/assets/css/theme.css" rel="stylesheet" id="style-default">
+    <link href="/static/assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
+    <link href="/static/assets/css/user.min.css" rel="stylesheet" id="user-style-default">
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="/static/assets/js/config.js"></script>
+    <script src="/static/vendors/simplebar/simplebar.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script>
+        var isRTL = JSON.parse(localStorage.getItem('isRTL'));
+        if (isRTL) {
+            var linkDefault = document.getElementById('style-default');
+            var userLinkDefault = document.getElementById('user-style-default');
+            linkDefault.setAttribute('disabled', true);
+            userLinkDefault.setAttribute('disabled', true);
+            document.querySelector('html').setAttribute('dir', 'rtl');
+        } else {
+            var linkRTL = document.getElementById('style-rtl');
+            var userLinkRTL = document.getElementById('user-style-rtl');
+            linkRTL.setAttribute('disabled', true);
+            userLinkRTL.setAttribute('disabled', true);
+        }
+    </script>
+    <!-- script
+    ================================================== -->
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/member_info.js') }}"></script>
+
+</head>
+<body>
+<main class="main" id="top">
+    <div id="container" class="container">
+        <script>
+            var isFluid = JSON.parse(localStorage.getItem('isFluid'));
+            if (isFluid) {
+                var container = document.querySelector('[data-layout]');
+                container.classList.remove('container');
+                container.classList.add('container-fluid');
+            }
+        </script>
+        {#        <nav class="navbar navbar-light navbar-vertical navbar-expand-xl">{% include 'nav.html' %}</nav>#}
+        <div class="content">
+            <div class="d-flex align-items-center" style="margin-top: 20px; margin-left: 3px;"><img class="me-2" src="/static/images/main-logo-14-up.png" alt="" width="80" /><span style="font-size: 12px;">학원 관리</span>
+            </div>
+            <div class="card mb-3" id="academy_search">
+                <div class="card-header">
+                    <div class="row">
+                        <div style="text-align: center; margin-top: 30px;">
+                            <h6>가입 타입을 선택해주세요.</h6>
+                            <span style="text-align: left; margin-left: 30px; margin-right: 30px; font-size: 13px;">
+                                <br>학원 운영과 교육 상권 분석 등의 서비스를 제공합니다.<br>
+                            </span>
+                        </div>
+                        <div style="margin-top: 50px; margin-bottom: 50px; text-align: center;">
+                                <div class="align-items-center" id="type_select_01">
+                                    <button class="btn btn-lg btn-falcon-default rounded-pill me-1 mb-1" type="button" style="width: 300px;">학원 및 원장 인증</button>
+                                </div>
+                                <div class="align-items-center" id="type_select_02" style="margin-top: 20px;">
+                                    <button class="btn btn-lg btn-falcon-default rounded-pill me-1 mb-1" type="button" style="width: 300px;">일반 교사 가입 신청</button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="{{url_for('static', filename='js/index_home.js')}}"></script>
+<script src="{{url_for('static', filename='js/edu_info.js')}}"></script>
+
+</body>
+</html>

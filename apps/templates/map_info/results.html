@@ -1,0 +1,246 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>
+        L_NO_TOUCH = false;
+        L_DISABLE_3D = false;
+    </script>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <link rel="icon" href="{{url_for('static', filename='images/favicon.ico') }}"/>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"/>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
+
+    <link rel="stylesheet" type="text/css" href={{url_for('static', filename='css/jquery.jscrollpane.custom.css')}}/>
+    <link rel="stylesheet" type="text/css" href={{url_for('static', filename='css/bookblock.css') }}/>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/custom.css') }}"/>
+    <script src={{url_for('static', filename='js/modernizr.custom.79639.js')}}></script>
+    <script src={{url_for('static', filename='js/geo_json.js')}}></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/sigungu_h.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/hangjungdong_b.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='src/Leaflet.draw.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/Leaflet.Draw.Event.js')}}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='src/leaflet.draw.css')}}"/>
+
+    <script src="{{ url_for('static', filename='src/Toolbar.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/Tooltip.js')}}"></script>
+
+    <script src="{{ url_for('static', filename='src/ext/GeometryUtil.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/ext/LatLngUtil.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/ext/LineUtil.Intersect.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/ext/Polygon.Intersect.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/ext/Polyline.Intersect.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/ext/TouchEvents.js')}}"></script>
+
+    <script src="{{ url_for('static', filename='src/draw/DrawToolbar.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/draw/handler/Draw.Feature.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/draw/handler/Draw.SimpleShape.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/draw/handler/Draw.Polyline.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/draw/handler/Draw.Marker.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/draw/handler/Draw.Circle.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/draw/handler/Draw.CircleMarker.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/draw/handler/Draw.Polygon.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/draw/handler/Draw.Rectangle.js')}}"></script>
+
+    <script src="{{ url_for('static', filename='src/edit/EditToolbar.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/edit/handler/EditToolbar.Edit.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/edit/handler/EditToolbar.Delete.js')}}"></script>
+
+    <script src="{{ url_for('static', filename='src/Control.Draw.js')}}"></script>
+
+    <script src="{{ url_for('static', filename='src/edit/handler/Edit.Poly.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/edit/handler/Edit.SimpleShape.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/edit/handler/Edit.Rectangle.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/edit/handler/Edit.Marker.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/edit/handler/Edit.CircleMarker.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/edit/handler/Edit.Circle.js')}}"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script>
+        function init_login() {
+            if ("{{session['id']}}" == ""){
+                alert("올바른 경로가 아닙니다.\n로그인 페이지로 이동합니다.");
+                location.href="/login";
+            }
+        };
+    </script>
+</head>
+
+<body onload="javascript:init_login();">
+    <div id="container" class="container">
+        <div id="map" style="width: 100%"></div>
+        <div class="menu-panel" id="menu-panel">
+            <a href="{{url_for('map_info.results')}}"><img src="{{ url_for('static', filename='images/bi.png')}}" /></a>
+            <ul id="menu-toc" class="menu-toc">
+                    <div>
+                        <img src="{{ url_for('static', filename='images/title.png')}}" />
+                    </div>
+                    <div>
+{#                        <select name="sido1" id="sido1" onchange="selectBoxChange(this.value)"></select>#}
+{#                        <select name="gugun1" id="gugun1">#}
+{#                            <option value=''>구/군 선택</option>#}
+{#                        </select>#}
+{#                        <input type="text" id="search" name ='search' placeholder="&nbsp;읍면동 검색(예: 상암동)">#}
+                        <input type="hidden" id="adm_cd_real" name="adm_cd_real">
+                        <input type="hidden" id="bjdong_cd" name="bjdong_cd">
+                    </div>
+                    <div class="contents">
+                        <select id="sido"><option value="">선택</option></select>
+                        <select id="sigugun"><option value="">선택</option></select>
+                        <select id="dong"><option value="">선택</option></select>
+                    </div>
+                    <div id="button_02">
+                        <button id="search_bnt" type="button">검색</button>
+                        <input id="bjdong2" type="text" value="" hidden>
+                    </div>
+                    <div style="float:left; margin-left: 15px"><img src="{{ url_for('static', filename='images/bullet.png')}}"/></div>
+                    <div style="color: #ffffff; float:left; margin-left: 10px; margin-bottom:15px; font-size:12px;">{{session['id']}}님 안녕하세요.</div>
+                    <!--<div id="amd_info1" style="color: #ffffff; float:left; margin-left: 10px; margin-bottom:5px; font-size:12px;">
+                    </div>
+                    <div id="amd_info2" style="color: #ffffff; float:left; margin-left: 10px; margin-bottom:5px; font-size:12px;">
+                    </div>
+                    <div id="amd_info3" style="color: #ffffff; float:left; margin-left: 10px; margin-bottom:5px; font-size:12px;">
+                    </div>
+                    <div id="amd_info4" style="color: #ffffff; float:left; margin-left: 10px; margin-bottom:5px; font-size:12px;">
+                    </div-->
+                    <div style="color: #ffffff; float:left; margin-left: 10px; margin-bottom:15px; font-size:12px;">
+                        ※ 우측 레이어 컨트롤 버튼을 이용하여 <br>
+                        &nbsp; &nbsp;  영역별 위치를 볼 수 있습니다. <br><br>
+                        ※ 신기한/플라톤 고객의 경우 위치가 <br>
+                        &nbsp; &nbsp; 겹치면 안보일 수 있습니다. <br>
+                        &nbsp; &nbsp; 컨트롤 버튼을 이용하여 확인하세요.<br><br>
+                        ※ 회원의 경우 주소 정보가 정확하게 <br>
+                        &nbsp; &nbsp; 입력된 데이터만 나옵니다.
+                    </div>
+                    <div id="button_03">
+                        <button id="loc_info_nm" type="button" onclick="btn_call('#info_open_div', btn_bjdong_cd);">법정동 정보 보기</button>
+                        <input id="loc_info_cd" type="hidden">
+                        <button id="asobi_toggle" type="button" onclick="location.href='{{url_for('map_info.asobi')}}'">경쟁 가맹 정보만 보기</button>
+                        <button id="hansol_toggle" type="button" onclick="location.href='{{url_for('map_info.member_info')}}'">한솔 회원 정보만 보기</button>
+                    </div>
+                    <div id="button_03">
+                        <button id="logout" type="button" onclick="location.href='{{url_for('member_info.logout')}}'">로그아웃</button>
+                    </div>
+            </ul>
+            <ul id="detail_info" class="detail_info">
+            </ul>
+        </div>
+        <span id="tblcontents" class="menu-button" onclick="toggleBtn1()";></span>
+    </div>
+    <!-- /container -->
+    <!--div id="layer1" class="pop-layer">
+        <div class="pop-container">
+            <div class="pop-conts">
+                <p class="ctxt mb20">
+                    <p><span class="bjdong">상권 분석</span></p>
+                    <p> - 0~4세: <span class="first_year"></span> 명</p>
+                    <p> - 5~9세: <span class="second_year"></span> 명</p>
+                    <p> - 10~14세: <span class="third_year"></span> 명</p>
+                    <p> - 가구수: <span class="house_cnt"></span></p>
+                    <p> - 총 가구원 수: <span class="familyy_cnt"></span></p>
+                    <p> - 평균 가구원 수: <span class="avg_familyy_cnt"></span></p><br><br>
+                    ※ 2021년도 통계청 자료
+                </p>
+                <div class="btn-r">
+                    <a href="#" class="btn-layerClose">Close</a>
+                </div>
+            </div>
+        </div>
+    </div-->
+    <div id="info_open_div" class="pop-layer">
+        <div class="pop-container">
+            <div class="pop-conts" style="height:600px; width:1100px" >
+                <div class="btn-l">
+                    <a href="#" class="btn-layerClose">Close</a>
+                </div>
+                    <ul class="tab-menu">
+                        <li class="active"><a href="#popcnt">인구수</a></li>
+                        <li><a href="#kinder_info">유치원</a></li>
+                        <li><a href="#el_info">초등</a></li>
+                        <li><a href="#mi_info">중등</a></li>
+                        <li><a href="#hi_info">고등</a></li>
+                        <li><a href="#ed_info">학원</a></li>
+                        <li><a href="#buinding_info">세대수</a></li>
+                        <li><a href="#singi_live_info">신기한(수업)</a></li>
+                        <li><a href="#singi_off_info">신기한(휴회)</a></li>
+                        <li><a href="#platon_live_info">플라톤(수업)</a></li>
+                        <li><a href="#platon_off_info">플라톤(휴회)</a></li>
+                    </ul>
+                    <div id ="popcnt" class="tab-content active"></div>
+                    <div id="kinder_info" class="tab-content"></div>
+                    <div id="el_info" class="tab-content"></div>
+                    <div id="mi_info" class="tab-content"></div>
+                    <div id ="hi_info" class="tab-content"></div>
+                    <div id="ed_info" class="tab-content"></div>
+                    <div id="buinding_info" class="tab-content"></div>
+                    <div id="singi_live_info" class="tab-content"></div>
+                    <div id="singi_off_info" class="tab-content"></div>
+                    <div id="platon_live_info" class="tab-content"></div>
+                    <div id="platon_off_info" class="tab-content"></div>
+            </div>
+            <div class="wrap-loading2 display-none">
+                <div><img src="../static/images/Ghost.gif" width="64" height="64" style="border-radius: 50%;"/></div>
+            </div>
+        </div>
+    </div>
+    <div class="wrap-loading display-none">
+        <div><img src="../static/images/Ghost.gif" width="64" height="64" style="border-radius: 50%;"/></div>
+    </div>
+{#    <div id="weather" class="pop-layer">#}
+{#        <div class="pop-container">#}
+{#            <div class="pop-conts">#}
+{#                <iframe id="iframe" style="width:100%; height:500px;"></iframe>#}
+{#                <div class="btn-r">#}
+{#                    <a href="#" class="btn-layerClose">Close</a>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+    <script>
+        // map 생성
+        map = L.map('map').setView([37.577, 126.8916], 16);
+        // 타일 레이어 생성
+        tile_layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors',
+                             'detectRetina': false,
+                             'maxNativeZoom': 25,
+                             'maxZoom': 18,
+                             'minZoom': 14
+            }
+        ).addTo(map);
+        map.removeControl(map.zoomControl);
+
+    </script>
+</body>
+<script src="{{url_for('static', filename='js/map_info.js')}}"></script>
+<script src="{{url_for('static', filename='js/map_info_button.js')}}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/edu_info.js') }}"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="{{url_for('static', filename='js/jquery.jscrollpane.min.js')}}"></script>
+<script src="{{url_for('static', filename='js/jquery.bookblock.js')}}"></script>
+<script src="{{url_for('static', filename='js/page.js')}}"></script>
+<script>
+    $(function() {
+        Page.init();
+    });
+</script>
+</html>

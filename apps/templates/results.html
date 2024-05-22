@@ -1,0 +1,350 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>
+        L_NO_TOUCH = false;
+        L_DISABLE_3D = false;
+    </script>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <link rel="icon" href="{{url_for('static', filename='images/favicon.ico') }}"/>
+    {#    <link rel="apple-touch-icon" sizes="180x180" href="/static/assets/img/favicons/apple-touch-icon.png">#}
+    {#    <link rel="icon" type="image/png" sizes="32x32" href="/static/assets/img/favicons/favicon-32x32.png">#}
+    {#    <link rel="icon" type="image/png" sizes="16x16" href="/static/assets/img/favicons/favicon-16x16.png">#}
+    {#    <link rel="shortcut icon" type="image/x-icon" href="/static/assets/img/favicons/favicon.ico">#}
+    <link rel="manifest" href="/static/assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="/static/assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
+    <link href="/static/vendors/simplebar/simplebar.min.css" rel="stylesheet">
+    <link href="/static/assets/css/theme-rtl.min.css" rel="stylesheet" id="style-rtl">
+    <link href="/static/assets/css/theme.min.css" rel="stylesheet" id="style-default">
+    <link href="/static/assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
+    <link href="/static/assets/css/user.min.css" rel="stylesheet" id="user-style-default">
+
+
+{#    <link rel="stylesheet" href="../static/css/style.css">#}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"/>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+{#    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>#}
+{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>#}
+{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>#}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
+
+    <link rel="stylesheet" type="text/css" href={{url_for('static', filename='css/jquery.jscrollpane.custom.css')}}/>
+    <link rel="stylesheet" type="text/css" href={{url_for('static', filename='css/bookblock.css') }}/>
+{#    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/custom.css') }}"/>#}
+    <script src={{url_for('static', filename='js/modernizr.custom.79639.js')}}></script>
+    <script src={{url_for('static', filename='js/geo_json.js')}}></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/sigungu_h.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/hangjungdong_b.js') }}"></script>
+    <script src="{{ url_for('static', filename='src/Leaflet.draw.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/Leaflet.Draw.Event.js')}}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='src/leaflet.draw.css')}}"/>
+
+    <script src="{{ url_for('static', filename='src/Toolbar.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/Tooltip.js')}}"></script>
+
+    <script src="{{ url_for('static', filename='src/ext/GeometryUtil.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/ext/LatLngUtil.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/ext/LineUtil.Intersect.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/ext/Polygon.Intersect.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/ext/Polyline.Intersect.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/ext/TouchEvents.js')}}"></script>
+
+    <script src="{{ url_for('static', filename='src/draw/DrawToolbar.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/draw/handler/Draw.Feature.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/draw/handler/Draw.SimpleShape.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/draw/handler/Draw.Polyline.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/draw/handler/Draw.Marker.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/draw/handler/Draw.Circle.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/draw/handler/Draw.CircleMarker.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/draw/handler/Draw.Polygon.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/draw/handler/Draw.Rectangle.js')}}"></script>
+
+    <script src="{{ url_for('static', filename='src/edit/EditToolbar.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/edit/handler/EditToolbar.Edit.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/edit/handler/EditToolbar.Delete.js')}}"></script>
+
+    <script src="{{ url_for('static', filename='src/Control.Draw.js')}}"></script>
+
+    <script src="{{ url_for('static', filename='src/edit/handler/Edit.Poly.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/edit/handler/Edit.SimpleShape.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/edit/handler/Edit.Rectangle.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/edit/handler/Edit.Marker.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/edit/handler/Edit.CircleMarker.js')}}"></script>
+    <script src="{{ url_for('static', filename='src/edit/handler/Edit.Circle.js')}}"></script>
+
+
+    <script src="/static/assets/js/config.js"></script>
+    <script src="/static/vendors/simplebar/simplebar.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script>
+        var isRTL = JSON.parse(localStorage.getItem('isRTL'));
+        if (isRTL) {
+            var linkDefault = document.getElementById('style-default');
+            var userLinkDefault = document.getElementById('user-style-default');
+            linkDefault.setAttribute('disabled', true);
+            userLinkDefault.setAttribute('disabled', true);
+            document.querySelector('html').setAttribute('dir', 'rtl');
+        } else {
+            var linkRTL = document.getElementById('style-rtl');
+            var userLinkRTL = document.getElementById('user-style-rtl');
+            linkRTL.setAttribute('disabled', true);
+            userLinkRTL.setAttribute('disabled', true);
+        }
+    </script>
+    <script>
+        function init_login() {
+            if ("{{session['id']}}" == ""){
+                alert("올바른 경로가 아닙니다.\n로그인 페이지로 이동합니다.");
+                location.href="/login";
+            }
+        };
+    </script>
+</head>
+
+<body onload="javascript:init_login();">
+<main class="main" id="top">
+    <div id="container" class="container">
+        <input type="hidden" id="adm_cd_real" name="adm_cd_real">
+        <input type="hidden" id="bjdong_cd" name="bjdong_cd">
+        <input type="hidden" id="bjdong2" value="">
+        <script>
+            var isFluid = JSON.parse(localStorage.getItem('isFluid'));
+            if (isFluid) {
+                var container = document.querySelector('[data-layout]');
+                container.classList.remove('container');
+                container.classList.add('container-fluid');
+            }
+        </script>
+        <nav class="navbar navbar-light navbar-vertical navbar-expand-xl">{% include 'nav.html' %}</nav>
+        <div class="content">
+            <nav class="navbar navbar-light navbar-glass navbar-top navbar-expand">{% include 'nav2.html' %}</nav>
+
+            <div style="width: 100%; height: 40%; margin-top: 6px;">
+                <div>
+                    <div class="card-header bg-light py-2">
+                        <div class="row flex-between-center">
+                            <div class="col-auto">
+                                <h6 class="mb-0"></h6>
+                            </div>
+                            <div class="col-auto d-flex"><a class="btn btn-link btn-sm me-2" href="#!">View Details</a>
+                                <div class="dropdown font-sans-serif btn-reveal-trigger">
+                                    <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal" type="button" id="dropdown-top-products" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--2"></span></button>
+                                    <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-top-products"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body h-100">
+                        <div id="map" style="width: 100%; height: 80%; position:relative;" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-1 mb-3">
+                <div class="col-md-6 col-xxl-3">
+                    <div class="card h-md-100 ecommerce-card-min-width">
+                        <div class="card-header pb-0">
+                            <h6 class="mb-0 mt-2 d-flex align-items-center">Weekly Sales<span class="ms-1 text-400" data-bs-toggle="tooltip" data-bs-placement="top" title="Calculated according to last week's sales"><span class="far fa-question-circle" data-fa-transform="shrink-1"></span></span></h6>
+                        </div>
+                        <div class="card-body d-flex flex-column justify-content-end">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="font-sans-serif lh-1 mb-1 fs-4">$47K</p><span class="badge badge-subtle-success rounded-pill fs--2">+3.5%</span>
+                                </div>
+                                <div class="col-auto ps-0">
+                                    <div class="echart-bar-weekly-sales h-100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xxl-3">
+                    <div class="card h-md-100">
+                        <div class="card-header pb-0">
+                            <h6 class="mb-0 mt-2">Total Order</h6>
+                        </div>
+                        <div class="card-body d-flex flex-column justify-content-end">
+                            <div class="row justify-content-between">
+                                <div class="col-auto align-self-end">
+                                    <div class="fs-4 fw-normal font-sans-serif text-700 lh-1 mb-1">58.4K</div><span class="badge rounded-pill fs--2 bg-200 text-primary"><span class="fas fa-caret-up me-1"></span>13.6%</span>
+                                </div>
+                                <div class="col-auto ps-0 mt-n4">
+                                    <div class="echart-default-total-order" data-echarts='{"tooltip":{"trigger":"axis","formatter":"{b0} : {c0}"},"xAxis":{"data":["Week 4","Week 5","Week 6","Week 7"]},"series":[{"type":"line","data":[20,40,100,120],"smooth":true,"lineStyle":{"width":3}}],"grid":{"bottom":"2%","top":"2%","right":"10px","left":"10px"}}' data-echart-responsive="true"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xxl-3">
+                    <div class="card h-md-100">
+                        <div class="card-body">
+                            <div class="row h-100 justify-content-between g-0">
+                                <div class="col-5 col-sm-6 col-xxl pe-2">
+                                    <h6 class="mt-1">Market Share</h6>
+                                    <div class="fs--2 mt-3">
+                                        <div class="d-flex flex-between-center mb-1">
+                                            <div class="d-flex align-items-center"><span class="dot bg-primary"></span><span class="fw-semi-bold">Samsung</span></div>
+                                            <div class="d-xxl-none">33%</div>
+                                        </div>
+                                        <div class="d-flex flex-between-center mb-1">
+                                            <div class="d-flex align-items-center"><span class="dot bg-info"></span><span class="fw-semi-bold">Huawei</span></div>
+                                            <div class="d-xxl-none">29%</div>
+                                        </div>
+                                        <div class="d-flex flex-between-center mb-1">
+                                            <div class="d-flex align-items-center"><span class="dot bg-300"></span><span class="fw-semi-bold">Apple</span></div>
+                                            <div class="d-xxl-none">20%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-auto position-relative">
+                                    <div class="echart-market-share"></div>
+                                    <div class="position-absolute top-50 start-50 translate-middle text-dark fs-2">26M</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xxl-3">
+                    <div class="card h-md-100">
+                        <div class="card-header d-flex flex-between-center pb-0">
+                            <h6 class="mb-0">Weather</h6>
+                            <div class="dropdown font-sans-serif btn-reveal-trigger">
+                                <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal" type="button" id="dropdown-weather-update" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--2"></span></button>
+                                <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-weather-update"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                                    <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body pt-2">
+                            <div class="row g-0 h-100 align-items-center">
+                                <div class="col">
+                                    <div class="d-flex align-items-center"><img class="me-3" src="/static/assets/img/icons/weather-icon.png" alt="" height="60" />
+                                        <div>
+                                            <h6 class="mb-2">New York City</h6>
+                                            <div class="fs--2 fw-semi-bold">
+                                                <div class="text-warning">Sunny</div>Precipitation: 50%
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-auto text-center ps-2">
+                                    <div class="fs-4 fw-normal font-sans-serif text-primary mb-1 lh-1">31&deg;</div>
+                                    <div class="fs--1 text-800">32&deg; / 25&deg;</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</main>
+<div id="info_open_div" class="pop-layer" style="display: none;">
+    <div class="pop-container">
+        <div class="pop-conts" style="height:600px; width:1100px" >
+            <div class="btn-l">
+                <a href="#" class="btn-layerClose">Close</a>
+            </div>
+            <ul class="tab-menu">
+                <li class="active"><a href="#popcnt">인구수</a></li>
+                <li><a href="#kinder_info">유치원</a></li>
+                <li><a href="#el_info">초등</a></li>
+                <li><a href="#mi_info">중등</a></li>
+                <li><a href="#hi_info">고등</a></li>
+                <li><a href="#ed_info">학원</a></li>
+                <li><a href="#buinding_info">세대수</a></li>
+                <li><a href="#singi_live_info">신기한(수업)</a></li>
+                <li><a href="#singi_off_info">신기한(휴회)</a></li>
+                <li><a href="#platon_live_info">플라톤(수업)</a></li>
+                <li><a href="#platon_off_info">플라톤(휴회)</a></li>
+            </ul>
+            <div id ="popcnt" class="tab-content active"></div>
+            <div id="kinder_info" class="tab-content"></div>
+            <div id="el_info" class="tab-content"></div>
+            <div id="mi_info" class="tab-content"></div>
+            <div id ="hi_info" class="tab-content"></div>
+            <div id="ed_info" class="tab-content"></div>
+            <div id="buinding_info" class="tab-content"></div>
+            <div id="singi_live_info" class="tab-content"></div>
+            <div id="singi_off_info" class="tab-content"></div>
+            <div id="platon_live_info" class="tab-content"></div>
+            <div id="platon_off_info" class="tab-content"></div>
+        </div>
+        <div class="wrap-loading2 display-none">
+            <div><img src="../static/images/Ghost.gif" width="64" height="64" style="border-radius: 50%;"/></div>
+        </div>
+    </div>
+</div>
+    <div class="wrap-loading" style="display: none;">
+        <div><img src="../static/images/Ghost.gif" width="64" height="64" style="border-radius: 50%;"/></div>
+    </div>
+
+{#    <div id="weather" class="pop-layer">#}
+{#        <div class="pop-container">#}
+{#            <div class="pop-conts">#}
+{#                <iframe id="iframe" style="width:100%; height:500px;"></iframe>#}
+{#                <div class="btn-r">#}
+{#                    <a href="#" class="btn-layerClose">Close</a>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+    <script>
+        // map 생성
+        map = L.map('map').setView([37.577, 126.8916], 16);
+        // 타일 레이어 생성
+        tile_layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors',
+                             'detectRetina': false,
+                             'maxNativeZoom': 25,
+                             'maxZoom': 18,
+                             'minZoom': 14
+            }
+        ).addTo(map);
+        map.removeControl(map.zoomControl);
+
+    </script>
+</body>
+<script src="{{url_for('static', filename='js/map_info.js')}}"></script>
+<script src="{{url_for('static', filename='js/map_info_button.js')}}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/edu_info.js') }}"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="/static/vendors/popper/popper.min.js"></script>
+<script src="/static/vendors/bootstrap/bootstrap.min.js"></script>
+<script src="/static/vendors/anchorjs/anchor.min.js"></script>
+<script src="/static/vendors/is/is.min.js"></script>
+<script src="/static/vendors/echarts/echarts.min.js"></script>
+<script src="/static/vendors/fontawesome/all.min.js"></script>
+<script src="/static/vendors/lodash/lodash.min.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+<script src="/static/vendors/list.js/list.min.js"></script>
+<script src="/static/assets/js/theme.js"></script>
+<script src="{{ url_for('static', filename='js/plugins.js')}}"></script>
+<script src="{{ url_for('static', filename='js/script.js')}}"></script>
+
+</html>

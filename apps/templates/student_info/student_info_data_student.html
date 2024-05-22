@@ -1,0 +1,55 @@
+{#idx, student_type, student_name, tel_number, major_subject, belong_yn#}
+<!-- data.html -->
+{% if data %}
+    {% for item in data %}
+    <tr class="align-middle">
+        <td class="align-middle fs-0 py-3">
+            <div class="form-check mb-0">
+                <input class="form-check-input" name="student_check" type="checkbox" id="standby_student_check-{{ loop.index0 }}" value="{{ item[0] }}"/>
+            </div>
+        </td>
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative" onclick="location.href='/student_info/student_info_predetail?student_idx={{ item[0] }}&child_idx={{ item[1] }}'">
+                {{  item[2] }}
+            </div>
+        </td>
+        <td class="text-nowrap">
+            <div class="align-items-center position-relative" onclick="location.href='/student_info/student_info_predetail?student_idx={{ item[0] }}&child_idx={{ item[1] }}'">
+                {% if item[3] == None %}
+                    반편성전
+                {% else %}
+                    {{ item[3] }}
+                {% endif %}
+            </div>
+        </td>
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative" onclick="location.href='/student_info/student_info_predetail?student_idx={{ item[0] }}&child_idx={{ item[1] }}'">
+                {{ item[4] }}
+            </div>
+        </td>
+        <td class="text-nowrap">
+            <div class="align-items-center position-relative" onclick="location.href='/student_info/student_info_predetail?student_idx={{ item[0] }}&child_idx={{ item[1] }}'">
+                {{ item[5] }}
+            </div>
+        </td>
+        <td class="text-nowrap">
+            <div class="align-items-center position-relative" onclick="location.href='/student_info/student_info_predetail?student_idx={{ item[0] }}&child_idx={{ item[1] }}'">
+                {{ item[6].strftime('%Y-%m-%d') }}
+            </div>
+        </td>
+    </tr>
+
+    {% endfor %}
+{#    <tr>#}
+{#        <td class="align-middle fs-0 py-3" colspan="5">#}
+{#            <div class="d-flex align-items-center gap-2 position-relative">#}
+{#                <div class="d-flex align-items-center gap-2 position-relative">#}
+{#                    <div class="avatar avatar-xl">#}
+{#                        <div class="avatar-name rounded-circle"><span>EW</span></div>#}
+{#                    </div>#}
+{#                    <h6 class="mb-0">등록된 선생님이 없습니다.</h6>#}
+{#                </div>#}
+{#            </div>#}
+{#        </td>#}
+{#    </tr>#}
+{% endif %}

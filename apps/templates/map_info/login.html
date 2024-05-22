@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>플라톤 영업 실적 맵 로그인</title>
+    <style>
+        input {
+            background-position:5px center;
+            background-repeat:no-repeat;
+            border:2px solid #b40123;
+            border-radius:5px;
+            color: #f5b70;
+            width: 280px;
+            height: 40px;
+            font-size:14px;
+            text-indent:24px;
+            cursor:pointer;
+            margin-bottom:10px;
+            margin-left:15px;
+        }
+        button {
+            background-position:center;
+            background-repeat:no-repeat;
+            background-color: #b40123;
+            border:2px solid #b40123;
+            border-radius:5px;
+            color: #ffffff;
+            width: 280px;
+            height: 35px;
+            font-size:14px;
+            cursor:pointer;
+            margin-left:15px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items:center;
+        }
+        .contents {
+            border:1px solid #b40123;
+            border-radius:16px;
+            width: 600px;
+        }
+        div.left {
+            width: 50%;
+            float: left;
+        }
+        div.right {
+            width: 50%;
+            float: right;
+            margin-top: 48px;
+        }
+    </style>
+    <link rel="icon" href="{{url_for('static', filename='images/favicon.ico') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/custom.css') }}"/>
+</head>
+<body>
+    {%with messages = get_flashed_messages()%}
+        {%if messages %}
+            <script type="text/javascript">
+                alert("{{messages[-1]}}");
+            </script>
+        {%endif%}
+    {%endwith%}
+    <div class="container">
+        <div class="contents">
+            <form id = "login" action="{{ url_for('member_info.login')}}" method="POST" enctype="multipart/form-data">
+                <div align="center"><img src="{{ url_for('static', filename='images/login.png')}}" /></div>
+                <div align="center" >
+                    <input type="text" name ='id_' placeholder="&nbsp;ID를 입력하세요."><br>
+                    <input type="password" name ='pw_' placeholder="&nbsp;PW를 입력하세요."><br>
+                    <button type="submit" form="login" style="margin-bottom:40px;">확인</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

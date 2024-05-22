@@ -1,0 +1,65 @@
+{#idx, teacher_type, teacher_name, tel_number, major_subject, belong_yn#}
+<!-- data.html -->
+{% if data %}
+    {% for item in data %}
+    <tr  class="align-middle" onclick="location.href='/class_info/class_info_predetail?class_idx={{ item[0] }}'">
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {{ item[1] }}
+            </div>
+        </td>
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {{ item[2] }}
+            </div>
+        </td>
+        <td class="text-nowrap">
+            <div class="d-flex align-items-center position-relative">
+                <div class="avatar avatar-xl" style="margin-right: 5px;">
+                    {% if item[3] == none %}
+                        <img class="rounded-circle" src="/static/file_upload/picture/teacher_info/avatar.png">
+                    {% else %}
+                        <img class="rounded-circle" src="/static/file_upload/picture/teacher_info/{{ item[3] }}">
+                    {% endif %}
+                </div>
+                <h6 class="mb-0">
+                    {% if item[4] == none %}
+                        -
+                    {% else %}
+                        {{ item[4] }}
+                    {% endif %}
+                </h6>
+            </div>
+        </td>
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {{ item[5] }}
+            </div>
+        </td>
+        <td class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {{ item[6] }} / {{ item[7] }}
+            </div>
+        </td>
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {{ item[8].strftime('%Y-%m-%d') }}
+            </div>
+        </td>
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {{ item[9].strftime('%Y-%m-%d') }}
+            </div>
+        </td>
+        <td class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {% if item[10] == '1' %}
+                    수업중
+                {% elif item[10] == '0' %}
+                    종료
+                {% endif %}
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+{% endif %}

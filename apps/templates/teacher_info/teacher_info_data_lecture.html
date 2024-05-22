@@ -1,0 +1,73 @@
+{#idx, student_type, student_name, tel_number, major_subject, belong_yn#}
+<!-- data.html -->
+{% if data %}
+    {% for item in data %}
+        {% if loop.index0%2 == 0 %}
+            <div class="timeline-item timeline-item-start mb-3">
+                <div class="timeline-icon icon-item icon-item-lg text-primary border-300"><span class="fs-1 fas fa-envelope"></span></div>
+                <div class="row">
+                    <div class="col-lg-6 timeline-item-time">
+                        <div>
+                            <h6 class="mb-0 text-700">수업 날짜</h6>
+                            <p class="fs--2 text-500 font-sans-serif">{{ item[2] }}</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="timeline-item-content arrow-bg-white">
+                            <div class="timeline-item-card bg-white dark__bg-1100"><a href="/lecture_info/lecture_info_predetail?lecture_idx={{ item[0] }}&class_idx={{ item[7] }}&lecture_day={{ item[8] }}&lecture_start_time={{ item[3] }}&lecture_end_time={{ item[4] }}&class_nm={{ item[1] }}">
+                                <h5 class="mb-2 hover-primary">{{ item[1] }}</h5>
+                            </a>
+                                <div class="flex-wrap pt-2">
+                                    <h6 class="mb-0 text-600 lh-base"><span class="far fa-clock me-1"></span>{{ item[3] }} ~ {{ item[4] }}</h6>
+                                    <div class="d-flex align-items-center ms-auto me-2 me-sm-x1 me-xl-2 me-xxl-x1" style="margin-top: 5px;">
+                                        {% if item[5] == "1" %}
+                                            <div class="dot me-0 me-sm-2 me-xl-0 me-xxl-2 bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Low"></div>
+                                            <h6 class="mb-0 text-700">수업 취소</h6>
+                                        {% elif item[5] == none %}
+                                            <div class="dot me-0 me-sm-2 me-xl-0 me-xxl-2 bg-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Urgent"></div>
+                                            <h6 class="mb-0 text-700">수업</h6>
+                                        {% endif %}
+                                        <small class="badge rounded badge-subtle-secondary dark__bg-1000" style="margin-left: 5px;">출석: {{ item[6] }}명</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% elif loop.index0%2 == 1 %}
+            <div class="timeline-item timeline-item-end mb-3">
+                <div class="timeline-icon icon-item icon-item-lg text-primary border-300"><span class="fs-1 fas fa-envelope"></span></div>
+                <div class="row">
+                    <div class="col-lg-6 timeline-item-time">
+                        <div>
+                            <h6 class="mb-0 text-700">수업 날짜</h6>
+                            <p class="fs--2 text-500 font-sans-serif">{{ item[2] }}</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="timeline-item-content arrow-bg-white">
+                            <div class="timeline-item-card bg-white dark__bg-1100"><a href="/lecture_info/lecture_info_predetail?lecture_idx={{ item[0] }}&class_idx={{ item[7] }}&lecture_day={{ item[8] }}&lecture_start_time={{ item[3] }}&lecture_end_time={{ item[4] }}&class_nm={{ item[1] }}">
+                                <h5 class="mb-2 hover-primary">{{ item[1] }}</h5>
+                            </a>
+                                <div class="flex-wrap pt-2">
+                                    <h6 class="mb-0 text-600 lh-base"><span class="far fa-clock me-1"></span>{{ item[3] }} ~ {{ item[4] }}</h6>
+                                    <div class="d-flex align-items-center ms-auto me-2 me-sm-x1 me-xl-2 me-xxl-x1" style="margin-top: 5px;">
+                                        {% if item[5] == "1" %}
+                                            <div class="dot me-0 me-sm-2 me-xl-0 me-xxl-2 bg-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Low"></div>
+                                            <h6 class="mb-0 text-700">수업 취소</h6>
+                                        {% elif item[5] == none %}
+                                            <div class="dot me-0 me-sm-2 me-xl-0 me-xxl-2 bg-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Urgent"></div>
+                                            <h6 class="mb-0 text-700">수업</h6>
+                                        {% endif %}
+                                        <small class="badge rounded badge-subtle-secondary dark__bg-1000" style="margin-left: 5px;">출석: {{ item[6] }}명</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}

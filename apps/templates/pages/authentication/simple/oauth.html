@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function init(){
+            var user_email="{{ user_email }}";
+            var user_idx="{{ user_idx }}";
+            var create_type = "{{ create_type }}";
+            var teacher_type = "{{ teacher_type }}";
+            var belong_idx = "{{ belong_idx }}";
+            var my_picture_thumb = "{{ my_picture_thumb }}";
+            var nick_name = "{{ nick_name }}";
+
+            localStorage.setItem("user_email", user_email);
+            localStorage.setItem("user_idx", user_idx);
+            localStorage.setItem("create_type", create_type);
+            localStorage.setItem("teacher_type", teacher_type);
+            localStorage.setItem("belong_idx", belong_idx);
+            localStorage.setItem("my_picture_thumb", my_picture_thumb);
+            localStorage.setItem("nick_name", nick_name);
+
+            if (teacher_type == '1' || teacher_type == '2' || teacher_type == '3'){
+                location.href="/index";
+            }else if(teacher_type == '4'){
+                alert("권한 승인 대기 중입니다.");
+                location.href="/login";
+            }
+            else if(teacher_type == ''){
+                location.href="/teacher_type";
+            };
+        };
+    </script>
+</head>
+<body onload="javascript:init();">
+</body>
+</html>

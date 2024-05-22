@@ -1,0 +1,31 @@
+{#idx, teacher_type, teacher_name, tel_number, major_subject, belong_yn#}
+<!-- data.html -->
+{% if data %}
+    {% for item in data %}
+    <tr  class="align-middle" onclick="location.href='/subject_info/subject_info_predetail?subject_idx={{ item[0] }}'">
+        <td class="align-middle fs-0 py-3">
+            <div class="form-check mb-0">
+            </div>
+        </td>
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {{ item[1] }}
+            </div>
+        </td>
+        <td class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {{ item[2] }}
+            </div>
+        </td>
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {% if item[3] != none %}
+                    {{ item[3].strftime('%Y-%m-%d') }}
+                {% else %}
+                    -
+                {% endif %}
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+{% endif %}

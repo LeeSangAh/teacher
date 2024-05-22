@@ -1,0 +1,31 @@
+{#idx, student_type, student_name, tel_number, major_subject, belong_yn#}
+<!-- data.html -->
+{% if data %}
+    {% for item in data %}
+    <tr class="align-middle" onclick="location.href='/lecture_info/lecture_info_predetail?lecture_idx={{ item[0] }}&class_idx={{ item[1] }}&lecture_day={{ item[3] }} &lecture_start_time={{ item[4] }}&lecture_end_time={{ item[5] }}&class_nm={{ item[2] }}'">
+        <td class="align-middle fs-0 py-3">
+            <div class="form-check mb-0">
+            </div>
+        </td>
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {{  item[2] }}
+            </div>
+        </td>
+        <td class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {% if today == item[3].strftime('%Y-%m-%d') %}
+                    <span class="fas fa-caret-right icon text-600"></span> 오늘 수업
+                {% else %}
+                    {{  item[3].strftime('%Y-%m-%d') }}
+                {% endif %}
+            </div>
+        </td>
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {{ item[4] }} ~ {{ item[5] }}
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+{% endif %}

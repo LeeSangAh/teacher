@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>한솔교육 지도정보 서비스</title>
+    <style>
+        input {
+            background-position:5px center;
+            background-repeat:no-repeat;
+            border:2px solid #b40123;
+            border-radius:5px;
+            color: #f5b70;
+            width: 280px;
+            height: 40px;
+            font-size:14px;
+            text-indent:24px;
+            cursor:pointer;
+            margin-bottom:10px;
+            margin-left:15px;
+        }
+        button {
+            background-position:center;
+            background-repeat:no-repeat;
+            background-color: #b40123;
+            border:2px solid #b40123;
+            border-radius:5px;
+            color: #ffffff;
+            width: 280px;
+            height: 35px;
+            font-size:14px;
+            cursor:pointer;
+            margin-left:15px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items:center;
+        }
+        .contents {
+            border:1px solid #b40123;
+            border-radius:16px;
+            width: 600px;
+        }
+        div.left {
+            width: 50%;
+            float: left;
+        }
+        div.right {
+            width: 50%;
+            float: right;
+            margin-top: 48px;
+        }
+         .mytooltip-content {
+             width: 300px;
+         }
+    </style>
+    <link rel="icon" href="{{url_for('static', filename='images/favicon.ico') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/custom.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/myTooltip.css') }}"/>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/myTooltip.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/edu_info.js') }}"></script>
+{#    <script type="text/javascript" src="{{ url_for('static', filename='js/member_info.js') }}"></script>#}
+{#    <script>#}
+{#    function handleOnInput(e)  {#}
+{#        e.value = e.value.replace(/[^A-Za-z]/ig, '')#}
+{#    }#}
+{#    </script>#}
+</head>
+<body>
+    {%with messages = get_flashed_messages()%}
+        {%if messages %}
+            <script type="text/javascript">
+                alert("{{messages[-1]}}");
+            </script>
+        {%endif%}
+    {%endwith%}
+    <div class="container">
+        <div class="contents">
+            <form id = "login" action="{{ url_for('member_info.login')}}" method="POST" enctype="multipart/form-data">
+                <div align="center"><img src="{{ url_for('static', filename='images/login.png')}}" /></div>
+                <div align="center" >
+                    <input type="text" name ='id_' style="width: 240px;" placeholder="&nbsp;ID를 입력하세요."><br>
+                    <input type="password" name ='pw_' style="width: 240px;" placeholder="&nbsp;PW를 입력하세요."><br>
+                    <button type="submit" form="login" style="margin-bottom:40px; width: 240px;">확인</button>
+                </div>
+            </form>
+            <div id="button_02" align="center">
+                <button type="text" style="margin-bottom:40px; width: 110px;" onclick="location.href='{{url_for('member_info.join')}}'">회원가입</button>
+                <button type="text" style="margin-bottom:40px; width: 110px;" onclick="member_layer_call('#info_open_02')">ID/PW 찾기</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

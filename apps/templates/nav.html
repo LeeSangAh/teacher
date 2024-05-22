@@ -1,0 +1,141 @@
+    <script>
+        var navbarStyle = localStorage.getItem("navbarStyle");
+        if (navbarStyle && navbarStyle !== 'transparent') {
+            document.querySelector('.navbar-vertical').classList.add(`navbar-${navbarStyle}`);
+        }
+    </script>
+    <div class="d-flex align-items-center">
+        <div class="toggle-icon-wrapper">
+
+            <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Toggle Navigation"><span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
+
+        </div>
+        <a class="navbar-brand" href="javascript:location.href='/index'">
+        <div class="d-flex align-items-center py-3"><img class="me-2" src="/static/images/main-logo-14-up.png" alt="" width="120" />
+        </div>
+        </a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+        <div class="navbar-vertical-content scrollbar">
+            <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
+                <li class="nav-item">
+                    <!-- parent pages--><a class="nav-link dropdown-indicator" href="#ul_academy_info" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="ul_academy_info">
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span><span class="nav-link-text ps-1">학원 관리</span>
+                    </div>
+                    </a>
+                    <ul class="nav collapse"  id="ul_academy_info">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Dashboard</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="academy_manage_02" href="javascript:location.href='/academy_info/academy_info_normal'">
+                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">학원 정보</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">공지</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" id="teacher_info_nav">
+                    <!-- parent pages--><a class="nav-link" id="teacher_manage" href="javascript:location.href='/teacher_info/teacher_info_normal'" role="button">
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-user"></span></span><span class="nav-link-text ps-1">교사 관리</span>
+                    </div>
+                </a>
+                </li>
+                <li class="nav-item" id="student_info_nav">
+
+                <!-- parent pages--><a class="nav-link" id="student_manage" href="javascript:location.href='/student_info/student_info_normal'" role="button">
+                <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-user"></span></span><span class="nav-link-text ps-1">학생 관리</span>
+                </div>
+                </a>
+                </li>
+                <li class="nav-item">
+                    <!-- parent pages--><a class="nav-link" id="class_level_manage" href="javascript:location.href='/level_info/level_info_normal'" role="button">
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-user"></span></span><span class="nav-link-text ps-1">반 관리</span>
+                    </div>
+                </a>
+                </li>
+                <li class="nav-item">
+                    <!-- parent pages--><a class="nav-link dropdown-indicator" id="a_class_manage" href="#ul_class_manage" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="ul_class_manage">
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-calendar-day"></span></span><span class="nav-link-text ps-1">수업 관리</span>
+                    </div>
+                    </a>
+                    <ul class="nav collapse"  id="ul_class_manage">
+                        <li class="nav-item">
+                            <a class="nav-link" id="class_manage_03" href="javascript:location.href='/subject_info/subject_info_normal'">
+                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">과목 관리</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="class_manage_01" href="javascript:location.href='/class_info/class_info_normal'">
+                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">수업 등록 관리</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="class_manage_02" href="javascript:location.href='/enrolment_info/enrolment_info_normal'">
+                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">수강생 관리</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="class_manage_04" href="javascript:location.href='/lecture_info/lecture_info_normal'">
+                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">수업 운영 관리</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <!-- parent pages--><a class="nav-link" href="javascript:alert('준비중입니다.')" role="button">
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-graduation-cap"></span></span><span class="nav-link-text ps-1">시험 관리</span>
+                    </div>
+                </a>
+                </li>
+                <li class="nav-item">
+                    <!-- parent pages--><a class="nav-link" href="javascript:alert('준비중입니다.')" role="button">
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fab fa-trello"></span></span><span class="nav-link-text ps-1">교재 관리</span>
+                    </div>
+                </a>
+                </li>
+                <li class="nav-item">
+                    </a>
+                    <!-- parent pages--><a class="nav-link"  href="javascript:location.href='/map_info/edu_analy_premap'" role="button">
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fab fa-trello"></span></span><span class="nav-link-text ps-1">교육 상권 분석</span><span class="badge rounded-pill ms-2 badge-subtle-success">New</span>
+                    </div>
+                </a>
+                </li>
+                <li class="nav-item">
+                    <!-- label-->
+                    <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+                        <div class="col-auto navbar-vertical-label">시스템 관리
+                        </div>
+                        <div class="col ps-0">
+                            <hr class="mb-0 navbar-vertical-divider" />
+                        </div>
+                    </div>
+                    <!-- parent pages--><a class="nav-link" href="pages/starter.html" role="button">
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-flag"></span></span><span class="nav-link-text ps-1">권한 관리</span>
+                    </div>
+                    </a>
+                        <!-- parent pages--><a class="nav-link" href="pages/landing.html" role="button">
+                        <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-globe"></span></span><span class="nav-link-text ps-1">코드 관리</span>
+                        </div>
+                    </a>
+                        <!-- parent pages--><a class="nav-link dropdown-indicator" href="#authentication" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="authentication">
+                        <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-lock"></span></span><span class="nav-link-text ps-1">메뉴 관리</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>

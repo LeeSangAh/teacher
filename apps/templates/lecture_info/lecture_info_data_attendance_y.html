@@ -1,0 +1,47 @@
+{#idx, student_type, student_name, tel_number, major_subject, belong_yn#}
+<!-- data.html -->
+{% if data %}
+    {% for item in data %}
+    <tr class="align-middle">
+        <td class="align-middle fs-0 py-3">
+            <div class="form-check mb-0">
+                <input class="form-check-input" name="attendance_y_check" type="checkbox" id="standby_student_check-{{ loop.index0 }}" value="{{ item[6] }}"/>
+            </div>
+        </td>
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {{  item[1] }}
+            </div>
+        </td>
+        <td class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {{ item[2] }}
+            </div>
+        </td>
+        <td class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {{ item[3] }}
+            </div>
+        </td>
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {% if item[4] == "1" %}
+                출석
+                {% else %}
+                결석
+                {% endif %}
+            </div>
+        </td>
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {% if item[5] == "1" %}
+                    제출
+                {% else %}
+{#                    <input class="form-check-input" name="homework_n_student_check" type="checkbox" id="standby_student_check-{{ loop.index0 }}" value="{{ item[0] }}"/>#}
+                    미제출
+                {% endif %}
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+{% endif %}

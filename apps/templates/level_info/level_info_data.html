@@ -1,0 +1,66 @@
+{#idx, student_type, student_name, tel_number, major_subject, belong_yn#}
+<!-- data.html -->
+{% if data %}
+    {% for item in data %}
+    <tr class="align-middle" onclick="location.href='/level_info/level_info_predetail?level_idx={{ item[0] }};'">
+        <td class="align-middle fs-0 py-3">
+            <div class="form-check mb-0">
+            </div>
+        </td>
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {{  item[1] }}
+            </div>
+        </td>
+        <td class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {% if item[2] == None %}
+                    -
+                {% else %}
+                    {{ item[2] }}
+                {% endif %}
+            </div>
+        </td>
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {% if item[5] == None %}
+                    -
+                {% else %}
+                    {{ item[5] }}
+                {% endif %}
+            </div>
+        </td>
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {% if item[3] == None %}
+                    -
+                {% else %}
+                    {{ item[3] }}
+                {% endif %}
+            </div>
+        </td>
+        <td class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {% if item[4] == "0" %}
+                    중지
+                {% else %}
+                    운영
+                {% endif %}
+            </div>
+        </td>
+    </tr>
+
+    {% endfor %}
+{#    <tr>#}
+{#        <td class="align-middle fs-0 py-3" colspan="5">#}
+{#            <div class="d-flex align-items-center gap-2 position-relative">#}
+{#                <div class="d-flex align-items-center gap-2 position-relative">#}
+{#                    <div class="avatar avatar-xl">#}
+{#                        <div class="avatar-name rounded-circle"><span>EW</span></div>#}
+{#                    </div>#}
+{#                    <h6 class="mb-0">등록된 선생님이 없습니다.</h6>#}
+{#                </div>#}
+{#            </div>#}
+{#        </td>#}
+{#    </tr>#}
+{% endif %}

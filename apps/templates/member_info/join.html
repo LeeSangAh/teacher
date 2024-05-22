@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>한솔교육 지도정보 서비스</title>
+    <style>
+        input {
+            background-position:5px center;
+            background-repeat:no-repeat;
+            border:2px solid #b40123;
+            border-radius:5px;
+            color: #f5b70;
+            width: 280px;
+            height: 40px;
+            font-size:14px;
+            text-indent:24px;
+            cursor:pointer;
+            margin-bottom:10px;
+            margin-left:15px;
+        }
+        button {
+            background-position:center;
+            background-repeat:no-repeat;
+            background-color: #b40123;
+            border:2px solid #b40123;
+            border-radius:5px;
+            color: #ffffff;
+            width: 280px;
+            height: 35px;
+            font-size:14px;
+            cursor:pointer;
+            margin-left:15px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items:center;
+        }
+        .contents {
+            border:1px solid #b40123;
+            border-radius:16px;
+            width: 600px;
+        }
+        div.left {
+            width: 50%;
+            float: left;
+        }
+        div.right {
+            width: 50%;
+            float: right;
+            margin-top: 48px;
+        }
+        .mytooltip-content {
+            width: 300px;
+        }
+    </style>
+    <link rel="icon" href="{{url_for('static', filename='images/favicon.ico') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/custom.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/myTooltip.css') }}"/>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/myTooltip.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/edu_info.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/member_info.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/sigungu_h.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/hangjungdong_b.js') }}"></script>
+</head>
+<body>
+{%with messages = get_flashed_messages()%}
+    {%if messages %}
+        <script type="text/javascript">
+            alert("{{messages[-1]}}");
+        </script>
+    {%endif%}
+{%endwith%}
+<div class="container">
+    <div class="contents">
+        <form id = "join" action="{{ url_for('member_info.member_insert')}}" method="POST" enctype="multipart/form-data">
+            <div id="" class="" style="display: block; margin: 0 auto;">
+                <div id="" class="form-group col-xs-2" style="z-index: 2; margin: 0 auto;">
+                    <table class="table" style="margin-left: 30px; margin-bottom: 30px; width: 80%; margin: 0 auto;">
+                        <tr>
+                            <td colspan="2">
+                                <h3 style="margin-bottom: 30px; margin-top: 20px;">회원가입</h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  width="30%">ID (필수): </td>
+                            <td  width="70%">
+                                <input id="ch_userId" name="ch_userId_" class="form-control" type="text" tabindex="1" onBlur="id_check();" style="width: 90%;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>비밀번호 (필수): </td>
+                            <td>
+                            <input class="js-mytooltip-pw form-control" id="ch_new_pw" name="ch_new_pw_" type="password" style="width: 90%;" tabindex="2"
+                               data-mytooltip-direction="right"
+                               data-mytooltip-dinamic-content="true"
+                               data-mytooltip-action="focus"
+                               data-mytooltip-animate-duration="0">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>비밀번호 확인 (필수): </td>
+                            <td>
+                                <input id="ch_re_pw" class="js-mytooltop-pw-chk form-control" type="password" tabindex="3" style="width: 90%;"
+                               data-mytooltip-direction="right"
+                               data-mytooltip-dinamic-content="true"
+                               data-mytooltip-action="focus"
+                               data-mytooltip-animate-duration="0">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  width="40%">전화번호 (필수): </td>
+                            <td  width="60%">
+                                <input id="tel_num" name="tel_num_" class="js-mytooltip-tel form-control" type="text" tabindex="4" onblur="tel_check();"  style="width: 90%;" placeholder="010-0000-0000">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  width="40%">이메일 (필수): </td>
+                            <td  width="60%">
+                                <input id="email" name="email_" class="js-mytooltip-email form-control" type="text" tabindex="5" onblur="email_check();"  style="width: 90%;" placeholder="email@wooagong.co.kr">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>지역 선택 (필수): </td>
+                            <td>
+                                <select id="sido" name="sido_" style="width: 90%"><option value="">선택</option></select>
+                                <select id="sigugun" name="sigugu_" style="width: 90%"><option value="">선택</option></select>
+                                <select id="dong" name="dong_" style="width: 90%"><option value="">선택</option></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <button type="submit" form="join" style="margin-bottom:20px; margin-top: 20px; width: 40%;">회원 가입</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </form>
+{#        <div id="button_02" align="center">#}
+{#            <button type="text" style="margin-bottom:20px;" onclick="location.href='{{url_for('member_info.home')}}'">로그인 화면 이동</button>#}
+{#        </div>#}
+    </div>
+</div>
+</body>
+</html>

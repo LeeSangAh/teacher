@@ -1,0 +1,23 @@
+{#idx, student_type, student_name, tel_number, major_subject, belong_yn#}
+<!-- data.html -->
+{% if data %}
+    {% for item in data %}
+    <tr class="align-middle" onclick="location.href='#'">
+        <td class="align-middle fs-0 py-3">
+            <div class="form-check mb-0">
+                <input class="form-check-input" name="attendance_n_student_check" type="checkbox" id="standby_student_check-{{ loop.index0 }}" value="{{ item[0] }}"/>
+            </div>
+        </td>
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {{  item[1] }}
+            </div>
+        </td>
+        <td class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {{  item[2] }}
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+{% endif %}

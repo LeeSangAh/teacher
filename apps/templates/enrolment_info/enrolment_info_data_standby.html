@@ -1,0 +1,35 @@
+{#idx, student_type, student_name, tel_number, major_subject, belong_yn#}
+<!-- data.html -->
+{% if data %}
+    {% for item in data %}
+    <tr class="align-middle">
+        <td class="align-middle fs-0 py-3">
+            <div class="form-check mb-0">
+                <input class="form-check-input" name="standby_student_check" type="checkbox" id="standby_student_check-{{ loop.index0 }}" value="{{ item[0] }}"/>
+            </div>
+        </td>
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {{  item[1] }}
+            </div>
+        </td>
+        <td class="text-nowrap">
+            <div class="align-items-center position-relative" onclick="location.href='/class_info/class_info_predetail?class_idx={{ item[6] }}'">
+                {{  item[2] }}
+            </div>
+        </td>
+        <td  class="text-nowrap">
+            <div class="align-items-center position-relative" onclick="location.href='/teacher_info/teacher_info_predetail?teacher_idx={{ item[7] }}'">
+                {{ item[3] }}
+            </div>
+        </td>
+        <td class="text-nowrap">
+            <div class="align-items-center position-relative">
+                {% if item[4] != none %}
+                    {{ item[4].strftime('%Y-%m-%d') }}
+                {% endif %}
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+{% endif %}
