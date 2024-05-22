@@ -1,0 +1,423 @@
+
+/* 로딩 */
+.wrap-loading{ /*화면 전체를 어둡게 합니다.*/
+    position: fixed;
+    z-index: 1000;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    /*background: rgba(0,0,0,0.2); !*not in ie *!*/
+    filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#20000000', endColorstr='#20000000');    /* ie */
+}
+
+.wrap-loading div{ /*로딩 이미지*/
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-left: -21px;
+    margin-top: -21px;
+}
+
+/* 로딩2 */
+.wrap-loading2{ /*화면 전체를 어둡게 합니다.*/
+    position: fixed;
+    z-index: 32;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    background: rgba(0,0,0,0.2); /*not in ie */
+    filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#20000000', endColorstr='#20000000');    /* ie */
+}
+
+.wrap-loading2 div{ /*로딩 이미지*/
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-left: -21px;
+    margin-top: -21px;
+}
+
+.display-none{ /*감추기*/
+    display:none;
+}
+
+.tab-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    font-size: 12px;
+}
+
+.tab-menu li {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+}
+
+.tab-menu li a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.tab-menu li.active a {
+    background-color: #ccc;
+    color: #fff;
+}
+
+.tab-content {
+    display: none;
+    font-size: 12px;
+    color: #333333;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.tab-content.active {
+    display: block;
+    font-size: 12px;
+    color: #333333;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+/*팝업 레이어*/
+
+.pop-layer {
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    width: 95%;
+    height: 70%;
+    background-color: #fff;
+    border: 1px solid #ff69b4;
+    z-index: 10;
+    overflow: auto;
+}
+
+.pop-layer .pop-container {
+    padding: 5px 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.pop-layer .pop-container .pop-conts{
+    width: 100%;
+    height: 90%;
+}
+
+.pop-layer p.ctxt {
+    color: #666;
+    line-height: 25px;
+}
+
+.pop-layer .btn-r {
+    width: 100%;
+    margin: 10px 0 20px;
+    padding-top: 10px;
+    border-top: 1px solid #DDD;
+    text-align: right;
+}
+
+.pop-layer .btn-l {
+    width: 100%;
+    margin: 10px 0 20px;
+    padding-top: 10px;
+    border-top: 1px solid #DDD;
+    text-align: left;
+}
+
+/*팝업 레이어2*/
+
+.pop-layer2 {
+    display: none;
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    width: 380px;
+    height: 390px;
+    background-color: #fff;
+    border: 0px;
+    z-index: 10;
+    overflow: auto;
+}
+
+.pop-layer2 .pop-container {
+    padding: 5px 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.pop-layer2 .pop-container .pop-conts{
+    width: 100%;
+    height: 90%;
+}
+
+.pop-layer2 p.ctxt {
+    color: #666;
+    line-height: 25px;
+}
+
+.pop-layer2 .btn-r {
+    width: 100%;
+    margin: 10px 0 20px;
+    padding-top: 10px;
+    /*border-top: 1px solid #DDD;*/
+    text-align: right;
+}
+
+.pop-layer2 .btn-l {
+    width: 100%;
+    margin: 10px 0 20px;
+    padding-top: 10px;
+    border-top: 1px solid #DDD;
+    text-align: left;
+}
+
+a.btn-layerClose2 {
+    display: inline-block;
+    height: 20px;
+    padding: 0 14px 0;
+    border: 1px solid #ff69b4;
+    background-color: #ff69b4;
+    font-size: 13px;
+    color: #fff;
+    line-height: 25px;
+}
+
+a.btn-layerClose2:hover {
+    border: 1px solid #091940;
+    background-color: #1f326a;
+    color: #fff;
+}
+
+
+/*팝업 레이어3 전체 창*/
+
+.pop-layer3 {
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    width: 100%;
+    height: 80%;
+    background-color: #fff;
+    border: 0px;
+    z-index: 10;
+    overflow: auto;
+}
+
+.pop-layer3 .pop-container {
+    padding: 5px 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.pop-layer3 .pop-container .pop-conts{
+    width: 100%;
+    height: 90%;
+}
+
+.pop-layer3 p.ctxt {
+    color: #666;
+    line-height: 25px;
+}
+
+.pop-layer3 .btn-r {
+    width: 100%;
+    margin: 10px 0 20px;
+    padding-top: 10px;
+    /*border-top: 1px solid #DDD;*/
+    text-align: right;
+}
+
+.pop-layer3 .btn-l {
+    width: 100%;
+    margin: 10px 0 20px;
+    padding-top: 10px;
+    border-top: 1px solid #DDD;
+    text-align: left;
+}
+
+a.btn-layerClose {
+    display: inline-block;
+    height: 25px;
+    padding: 0 14px 0;
+    border: 1px solid #ff69b4;
+    background-color: #ff69b4;
+    font-size: 13px;
+    color: #fff;
+    line-height: 25px;
+}
+
+a.btn-layerClose:hover {
+    border: 1px solid #091940;
+    background-color: #1f326a;
+    color: #fff;
+}
+
+
+/* */
+.dim-layer {
+    display: none;
+    position: fixed;
+    _position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+.dim-layer .dimBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .5;
+    filter: alpha(opacity=50);
+}
+
+.dim-layer .pop-layer {
+    display: block;
+}
+
+a.btn-layerClose {
+    display: inline-block;
+    height: 25px;
+    padding: 0 14px 0;
+    border: 1px solid #ff69b4;
+    background-color: #ff69b4;
+    font-size: 13px;
+    color: #fff;
+    line-height: 25px;
+}
+
+a.btn-layerClose:hover {
+    border: 1px solid #091940;
+    background-color: #1f326a;
+    color: #fff;
+}
+
+/*내 위치 버튼*/
+.image-toggle {
+    cursor: pointer;
+}
+
+/*.leaflet-draw-toolbar a {*/
+/*    background-image: url("/static/images/spritesheet.png");*/
+/*    background-repeat: no-repeat;*/
+/*}*/
+
+/* 내 위치 토글*/
+/*label {*/
+/*    display: inline-flex;*/
+/*    align-items: center;*/
+/*    gap: 0.5rem;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*[type="checkbox"] {*/
+/*    appearance: none;*/
+/*    position: relative;*/
+/*    border: max(2px, 0.1em) solid gray;*/
+/*    border-radius: 1.25em;*/
+/*    width: 2.25em;*/
+/*    height: 1.25em;*/
+/*}*/
+
+/*[type="checkbox"]::before {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    width: 1em;*/
+/*    height: 1em;*/
+/*    border-radius: 50%;*/
+/*    transform: scale(0.8);*/
+/*    background-color: gray;*/
+/*    transition: left 250ms linear;*/
+/*}*/
+
+/*[type="checkbox"]:checked {*/
+/*    background-color: tomato;*/
+/*    border-color: tomato;*/
+/*}*/
+
+/*[type="checkbox"]:checked::before {*/
+/*    background-color: white;*/
+/*    left: 1em;*/
+/*}*/
+
+/*[type="checkbox"]:disabled {*/
+/*    border-color: lightgray;*/
+/*    opacity: 0.7;*/
+/*    cursor: not-allowed;*/
+/*}*/
+
+/*[type="checkbox"]:disabled:before {*/
+/*    background-color: lightgray;*/
+/*}*/
+
+/*[type="checkbox"]:disabled + span {*/
+/*    opacity: 0.7;*/
+/*    cursor: not-allowed;*/
+/*}*/
+
+/*[type="checkbox"]:focus-visible {*/
+/*    outline-offset: max(2px, 0.1em);*/
+/*    outline: max(2px, 0.1em) solid tomato;*/
+/*}*/
+
+/*[type="checkbox"]:enabled:hover {*/
+/*    box-shadow: 0 0 0 max(4px, 0.2em) lightgray;*/
+/*}*/
+
+/*!* Global CSS *!*/
+/*body {*/
+/*    display: grid;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    height: 100vh;*/
+/*}*/
+
+/*fieldset {*/
+/*    border: none;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    gap: 0.5rem;*/
+/*}*/
+
+/**,*/
+/**::before,*/
+/**::after {*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/* 오늘 하루 다시 보지 않기 */
+/* CSS */
+.contents {margin:0 auto; max-width:800px;}
+.contents .title {margin:10px 0; font-size:25px; font-weight:600; text-align:center;}
+.contents p {line-height:20px; font-size:14px;}
+
+.layerPopup {display:none;}
+.layerPopup:before {display:block; content:""; position:fixed; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,.5);}
+.layerPopup .layerBox {position:fixed; left:50%; top:50%; transform:translate(-50%, -50%); padding:30px; background:#fff; border-radius:6px;}
+.layerPopup .layerBox .title {margin-bottom:10px; padding-bottom:10px; font-weight:600; border-bottom:1px solid #d9d9d9;}
+.layerPopup .layerBox .cont {margin-bottom:40px;}
+.layerPopup .layerBox p {line-height:20px; font-size:13px;}
+.layerPopup .layerBox .btnClose {display:inline-block; position:absolute; right:30px; top:25px; padding:6px 12px; color:#444; font-size:12px; text-decoration:underline;}
+.layerPopup .layerBox .btnTodayHide {font-size:13px; font-weight:600; text-decoration:underline;}
+
+
+/* 파일 업로드 인풋 감추기 */
+#my_pic_file {
+    visibility: hidden;
+}

@@ -1,0 +1,319 @@
+/*!* 로딩 *!*/
+/*.wrap-loading{ !*화면 전체를 어둡게 합니다.*!*/
+/*    position: fixed;*/
+/*    z-index: 1000;*/
+/*    left:0;*/
+/*    right:0;*/
+/*    top:0;*/
+/*    bottom:0;*/
+/*    !*background: rgba(0,0,0,0.2); !*not in ie *!*!*/
+/*    filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#20000000', endColorstr='#20000000');    !* ie *!*/
+/*}*/
+
+/*.wrap-loading div{ !*로딩 이미지*!*/
+/*    position: fixed;*/
+/*    top:50%;*/
+/*    left:50%;*/
+/*    margin-left: -21px;*/
+/*    margin-top: -21px;*/
+/*}*/
+
+/*!* 로딩 *!*/
+/*.wrap-loading1{ !*화면 전체를 어둡게 합니다.*!*/
+/*    position: fixed;*/
+/*    z-index: 1000;*/
+/*    left:0;*/
+/*    right:0;*/
+/*    top:0;*/
+/*    bottom:0;*/
+/*    !*background: rgba(0,0,0,0.2); !*not in ie *!*!*/
+/*    filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#20000000', endColorstr='#20000000');    !* ie *!*/
+/*}*/
+
+/*.wrap-loading1 div{ !*로딩 이미지*!*/
+/*    position: fixed;*/
+/*    top:50%;*/
+/*    left:50%;*/
+/*    margin-left: -21px;*/
+/*    margin-top: -21px;*/
+/*}*/
+
+/*!* 로딩 *!*/
+/*.wrap-loading2{ !*화면 전체를 어둡게 합니다.*!*/
+/*    position: relative;*/
+/*    z-index: 1000;*/
+/*    left:0;*/
+/*    right:0;*/
+/*    top:0;*/
+/*    bottom:0;*/
+/*    !*background: rgba(0,0,0,0.2); !*not in ie *!*!*/
+/*    filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#20000000', endColorstr='#20000000');    !* ie *!*/
+/*}*/
+
+/*.wrap-loading2 div{ !*로딩 이미지*!*/
+/*    position: relative;*/
+/*    top:70%;*/
+/*    left:50%;*/
+/*    margin-left: -21px;*/
+/*    margin-top: -21px;*/
+/*}*/
+
+/*!* 로딩 *!*/
+/*.wrap-loading3{ !*화면 전체를 어둡게 합니다.*!*/
+/*    position: relative;*/
+/*    z-index: 1000;*/
+/*    left:0;*/
+/*    right:0;*/
+/*    top:0;*/
+/*    bottom:0;*/
+/*    !*background: rgba(0,0,0,0.2); !*not in ie *!*!*/
+/*    filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#20000000', endColorstr='#20000000');    !* ie *!*/
+/*}*/
+
+/*.wrap-loading3 div{ !*로딩 이미지*!*/
+/*    position: relative;*/
+/*    top:70%;*/
+/*    left:50%;*/
+/*    margin-left: -21px;*/
+/*    margin-top: -21px;*/
+/*}*/
+
+/*!* 로딩 *!*/
+/*.wrap-loading4{ !*화면 전체를 어둡게 합니다.*!*/
+/*    position: relative;*/
+/*    z-index: 1000;*/
+/*    left:0;*/
+/*    right:0;*/
+/*    top:0;*/
+/*    bottom:0;*/
+/*    !*background: rgba(0,0,0,0.2); !*not in ie *!*!*/
+/*    filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#20000000', endColorstr='#20000000');    !* ie *!*/
+/*}*/
+
+/*.wrap-loading4 div{ !*로딩 이미지*!*/
+/*    position: relative;*/
+/*    left:50%;*/
+/*    margin-left: -21px;*/
+/*    margin-top: -21px;*/
+/*}*/
+
+/*.display-none{ !*감추기*!*/
+/*    display:none;*/
+/*}*/
+
+/*@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css");*/
+
+.down_menu {
+    background-color: var(--dark-color);
+    /*background-color: #14c1c1;*/
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    /*display: table;*/
+    /*table-layout: fixed;*/
+}
+
+.down_menu-details ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    /*display: table-cell;*/
+    display: flex;
+    justify-content: space-around;
+}
+
+.down_menu-details ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.down_menu-details ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
+
+/*공통 버튼*/
+.common-button {
+    width: 50%;
+    background-color: #14c1c1;
+    /*color: #FFFFFF;*/
+
+    /*box-shadow: 0px 0px #74a3b0;*/
+
+    /*display: block;*/
+    /*position: relative;*/
+    /*float: left;*/
+    padding: 0;
+    margin: 10px 20px 10px 0;
+    font-weight: 600;
+    text-align: center;
+    line-height: 40px;
+    color: #FFF;
+    /*border-radius: 0px;*/
+    border: none;
+    transition: all 0.2s ;
+}
+
+/*플로팅 버튼*/
+.floating-button {
+    display: flex;
+    position: fixed;
+    right: 10%;
+    bottom: 80px;
+    z-index: 999;
+}
+
+/*친구 추가 플로팅 버튼*/
+.profile-floating-button {
+    display: flex;
+    position: fixed;
+    right: 30px;
+    top: 225px;
+    z-index: 999;
+}
+
+/*플로팅 버튼 아이콘 공용 스타일*/
+.guest-btn::before {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    border-radius: 50%;
+    font-size: 1.15em;
+    font-family: 'Font Awesome 5 Pro';
+    /*플로팅 버튼 아이콘 색상 수정O*/
+    color: #b67700;
+}
+
+/*플로팅 버튼 스타일*/
+.move-guestBook {
+    float: left;
+    display: flex;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    /*사용자 설정 파트*/
+    font-weight: 700;
+    background-color: #00000000;
+    border: 2px solid #b67700;
+}
+
+/*프로필 사진*/
+.box {
+    width: 45px;
+    height: 45px;
+    border-radius: 70%;
+    overflow: hidden;
+}
+.profile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*라디오 버튼*/
+.radio-container {
+    display: inline-block;
+    position: relative;
+    margin-right: 20px;
+}
+
+.hidden-radio {
+    display: none;
+}
+
+.radio-container img {
+    width: 20px; /* 이미지 크기 조절 */
+    height: 20px;
+    cursor: pointer;
+}
+
+.radio-container input[type="radio"]:checked + img {
+    border: 2px solid #cccccc; /* 선택된 상태에 대한 스타일 설정 */
+    /* 추가적인 스타일링 가능 */
+}
+
+.circular-crop {
+    width: 100px; /* 원하는 너비 조절 */
+    height: 100px; /* 원하는 높이 조절 */
+    object-fit: cover;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.rate{background: url(/static/images/star_bg02.png) no-repeat;width: 121px;height: 20px;position: relative;}
+.rate span{position: absolute;background: url(/static/images/star02.png); width: auto; height: 20px;}
+
+/* ========== */
+.star-rating {
+    display: flex;
+}
+
+.star {
+    /* ------------ 기존 라디오 버튼 모양 보이지 않기 -------- */
+    appearance: none;
+    padding: 1px;
+}
+
+.star::after {
+    /*content: url(/static/images/star_bg02.png);*/
+    content: '☆';
+    color: #14c1c1;
+    font-size: 30px;
+}
+
+.star:hover::after,
+.star:has(~ .star:hover)::after,
+.star:checked::after,
+.star:has(~ .star:checked)::after {
+    content: '★';
+    /*content: url(/static/images/star02.png);*/
+}
+
+.star:hover ~ .star::after {
+    content: '☆';
+    /*content: url(/static/images/star_bg02.png);*/
+}
+/* ========================================= */
+
+.popup-menu {
+    /* 팝업 메뉴 스타일 설정 */
+}
+
+.popup-menu .dot {
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+    margin: 5px auto;
+}
+
+.upmenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 50px;
+    padding: 1rem;
+    color: white;
+    background: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 900;
+}
+
+.tooltip-inner{white-space: pre-wrap; text-align: left;}
+
